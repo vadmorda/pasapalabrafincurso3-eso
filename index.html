@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pasapalabra Geografía 3.º ESO</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Geografía e Historia · 3.º ESO</p>
+        <h1>Rosco de repaso</h1>
+        <p class="subtitle">Dos equipos, letras independientes y preguntas editables desde el código.</p>
+      </div>
+      <button id="resetGame" class="ghost">Reiniciar partida</button>
+    </header>
+
+    <section class="scoreboard" aria-label="Marcador">
+      <article id="teamAcard" class="team-card active" data-team="A">
+        <span class="team-label">Equipo A</span>
+        <strong id="scoreA">0</strong>
+        <small id="pendingA">27 pendientes</small>
+      </article>
+      <article id="teamBcard" class="team-card" data-team="B">
+        <span class="team-label">Equipo B</span>
+        <strong id="scoreB">0</strong>
+        <small id="pendingB">27 pendientes</small>
+      </article>
+    </section>
+
+    <section class="board">
+      <div class="rosco-wrap">
+        <div id="rosco" class="rosco" aria-label="Rosco de letras"></div>
+      </div>
+
+      <article class="question-card">
+        <div class="turn-row">
+          <span id="currentTeam" class="pill">Turno: Equipo A</span>
+          <span id="currentLetter" class="letter-pill">A</span>
+        </div>
+
+        <p id="question" class="question">Pulsa “Empezar” para iniciar el rosco.</p>
+        <details class="answer-box">
+          <summary>Ver respuesta</summary>
+          <p id="answer">—</p>
+        </details>
+
+        <div class="controls">
+          <button id="startBtn" class="primary">Empezar</button>
+          <button id="correctBtn">Acierto</button>
+          <button id="wrongBtn">Fallo</button>
+          <button id="passBtn">Pasapalabra</button>
+          <button id="switchBtn" class="ghost">Cambiar equipo</button>
+        </div>
+
+        <div class="teacher-tools">
+          <label for="variantSelect">Opción de pregunta</label>
+          <select id="variantSelect">
+            <option value="0">Opción 1</option>
+            <option value="1">Opción 2</option>
+          </select>
+          <p>Para reutilizarlo, cambia las preguntas en <code>app.js</code>, dentro de <code>QUESTION_BANK</code>.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
