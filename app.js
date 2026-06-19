@@ -1,6 +1,4 @@
 // PASAPALABRA REUTILIZABLE
-// Edita las preguntas aquí. Cada letra tiene dos opciones: [opción 1, opción 2].
-// Consejo: mantén answer en minúsculas/mayúsculas como quieras mostrarla; la app solo la enseña, no corrige texto escrito.
 const QUESTION_BANK = {
   A: [
     { prompt: 'Con la A. Cría controlada de peces, moluscos o crustáceos para consumo humano.', answer: 'Acuicultura' },
@@ -32,7 +30,7 @@ const QUESTION_BANK = {
   ],
   H: [
     { prompt: 'Con la H. ODS número 2, que busca acabar con la falta de alimentos.', answer: 'Hambre cero' },
-    { prompt: 'Con la H. Espacio habitado,', answer: 'Hábitat' }
+    { prompt: 'Con la H. Espacio habitado.', answer: 'Hábitat' }
   ],
   I: [
     { prompt: 'Con la I. Actividad económica que transforma materias primas en productos elaborados.', answer: 'Industria' },
@@ -43,8 +41,8 @@ const QUESTION_BANK = {
     { prompt: 'Con la J. Organización de las ciudades según su tamaño, funciones e influencia sobre el territorio.', answer: 'Jerarquía urbana' }
   ],
   K: [
-    { prompt: 'Con la K. Ciudad japonesa que dio nombre a un importante protocolo internacional para reducir las emisiones contaminantes', answer: 'Kyoto' },
-    { prompt: 'Con la K. País al oeste de Mongolia', answer: 'Kazajstán' }
+    { prompt: 'Con la K. Ciudad japonesa que dio nombre a un importante protocolo internacional para reducir las emisiones contaminantes.', answer: 'Kyoto' },
+    { prompt: 'Con la K. País al oeste de Mongolia.', answer: 'Kazajstán' }
   ],
   L: [
     { prompt: 'Con la L. Aumento de la esperanza de vida de una población.', answer: 'Longevidad' },
@@ -91,7 +89,7 @@ const QUESTION_BANK = {
     { prompt: 'Con la U. Espacio propio de la ciudad, frente al espacio rural.', answer: 'Urbano' }
   ],
   V: [
-    { prompt: 'Con la V. Situación de una persona o grupo que tiene mayores dificultades para afrontar problemas económicos, sociales o ambientales.', answer: 'vulnerabilidad' },
+    { prompt: 'Con la V. Situación de una persona o grupo que tiene mayores dificultades para afrontar problemas económicos, sociales o ambientales.', answer: 'Vulnerabilidad' },
     { prompt: 'Con la V. Instalación donde se depositan residuos para su eliminación o tratamiento.', answer: 'Vertedero' }
   ],
   W: [
@@ -99,7 +97,7 @@ const QUESTION_BANK = {
     { prompt: 'Con la W. Centro financiero de Nueva York considerado uno de los símbolos de la economía mundial.', answer: 'Wall Street' }
   ],
   X: [
-    { prompt: 'Con la X. Migración de población desde las zonas rurales hacia las ciudades.', answer: 'éxodo rural' },
+    { prompt: 'Con la X. Migración de población desde las zonas rurales hacia las ciudades.', answer: 'Éxodo rural' },
     { prompt: 'Con la X. Producción que supera las necesidades de consumo.', answer: 'Excedentes' }
   ],
   Y: [
@@ -112,103 +110,186 @@ const QUESTION_BANK = {
   ]
 };
 
-const LETTERS = Object.keys(QUESTION_BANK);
+const LETTERS = [
+  'A','B','C','D','E','F','G','H','I','J','K','L','M',
+  'N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+];
+
 const teams = {
-  A: { score: 0, index: 0, states: Object.fromEntries(LETTERS.map(l => [l, 'empty'])) },
-  B: { score: 0, index: 0, states: Object.fromEntries(LETTERS.map(l => [l, 'empty'])) }
+  A: {
+    score: 0,
+    index: 0,
+    variant: 0,
+    states: Object.fromEntries(LETTERS.map(l => [l, 'empty']))
+  },
+  B: {
+    score: 0,
+    index: 0,
+    variant: 1,
+    states: Object.fromEntries(LETTERS.map(l => [l, 'empty']))
+  }
 };
+
 let activeTeam = 'A';
 let started = false;
-let variant = 0;
 
 const $ = id => document.getElementById(id);
 const rosco = $('rosco');
 
-function buildRosco(){
+function buildRosco() {
   rosco.innerHTML = '';
   const radius = 43;
+
   LETTERS.forEach((letter, i) => {
     const angle = (i / LETTERS.length) * Math.PI * 2 - Math.PI / 2;
     const el = document.createElement('button');
+
     el.className = 'letter';
     el.textContent = letter;
     el.style.left = `${50 + radius * Math.cos(angle)}%`;
     el.style.top = `${50 + radius * Math.sin(angle)}%`;
     el.title = `Ir a la ${letter}`;
-    el.addEventListener('click', () => { teams[activeTeam].index = i; render(); });
+
+    el.addEventListener('click', () => {
+      teams[activeTeam].index = i;
+      render();
+    });
+
     rosco.appendChild(el);
   });
 }
 
-function currentLetter(){ return LETTERS[teams[activeTeam].index]; }
-function currentQuestion(){ return QUESTION_BANK[currentLetter()][variant] ?? QUESTION_BANK[currentLetter()][0]; }
-function pending(team){ return LETTERS.filter(l => !['ok','bad'].includes(teams[team].states[l])).length; }
+function currentLetter() {
+  return LETTERS[teams[activeTeam].index];
+}
 
-function render(){
+function currentQuestion() {
+  const team = teams[activeTeam];
+  const letter = currentLetter();
+  return QUESTION_BANK[letter][team.variant] ?? QUESTION_BANK[letter][0];
+}
+
+function pending(teamName) {
+  return LETTERS.filter(letter => !['ok', 'bad'].includes(teams[teamName].states[letter])).length;
+}
+
+function render() {
   const letter = currentLetter();
   const q = currentQuestion();
+
   $('scoreA').textContent = teams.A.score;
   $('scoreB').textContent = teams.B.score;
   $('pendingA').textContent = `${pending('A')} pendientes`;
   $('pendingB').textContent = `${pending('B')} pendientes`;
+
   $('currentTeam').textContent = `Turno: Equipo ${activeTeam}`;
   $('currentLetter').textContent = letter;
+
   $('question').textContent = started ? q.prompt : 'Pulsa “Empezar” para iniciar el rosco.';
   $('answer').textContent = started ? q.answer : '—';
+
   $('teamAcard').classList.toggle('active', activeTeam === 'A');
   $('teamBcard').classList.toggle('active', activeTeam === 'B');
+
+  if ($('variantSelect')) {
+    $('variantSelect').value = teams[activeTeam].variant;
+  }
 
   [...rosco.children].forEach((el, i) => {
     const l = LETTERS[i];
     el.className = `letter ${teams[activeTeam].states[l]}`;
-    if (l === letter) el.classList.add('current');
+
+    if (l === letter) {
+      el.classList.add('current');
+    }
   });
 }
 
-function nextAvailable(){
+function nextAvailable() {
   const team = teams[activeTeam];
-  for(let step = 1; step <= LETTERS.length; step++){
+
+  for (let step = 1; step <= LETTERS.length; step++) {
     const next = (team.index + step) % LETTERS.length;
-    if(!['ok','bad'].includes(team.states[LETTERS[next]])){
+    const nextLetter = LETTERS[next];
+
+    if (!['ok', 'bad'].includes(team.states[nextLetter])) {
       team.index = next;
       return;
     }
   }
 }
 
-function mark(state){
-  if(!started) started = true;
+function mark(state) {
+  if (!started) started = true;
+
   const letter = currentLetter();
   const team = teams[activeTeam];
   const previous = team.states[letter];
-  if(previous === 'ok') team.score--;
+
+  if (previous === 'ok') {
+    team.score--;
+  }
+
   team.states[letter] = state;
-  if(state === 'ok') team.score++;
-  if(state === 'pass') nextAvailable(); else nextAvailable();
+
+  if (state === 'ok') {
+    team.score++;
+  }
+
+  nextAvailable();
   render();
 }
 
-function switchTeam(){ activeTeam = activeTeam === 'A' ? 'B' : 'A'; render(); }
-function resetGame(){
-  for(const t of ['A','B']){
-    teams[t].score = 0; teams[t].index = 0;
-    teams[t].states = Object.fromEntries(LETTERS.map(l => [l, 'empty']));
-  }
-  activeTeam = 'A'; started = false; render();
+function switchTeam() {
+  activeTeam = activeTeam === 'A' ? 'B' : 'A';
+  render();
 }
 
-$('startBtn').addEventListener('click', () => { started = true; render(); });
+function resetGame() {
+  for (const t of ['A', 'B']) {
+    teams[t].score = 0;
+    teams[t].index = 0;
+    teams[t].states = Object.fromEntries(LETTERS.map(l => [l, 'empty']));
+  }
+
+  teams.A.variant = 0;
+  teams.B.variant = 1;
+
+  activeTeam = 'A';
+  started = false;
+  render();
+}
+
+$('startBtn').addEventListener('click', () => {
+  started = true;
+  render();
+});
+
 $('correctBtn').addEventListener('click', () => mark('ok'));
 $('wrongBtn').addEventListener('click', () => mark('bad'));
 $('passBtn').addEventListener('click', () => mark('pass'));
 $('switchBtn').addEventListener('click', switchTeam);
 $('resetGame').addEventListener('click', resetGame);
-$('variantSelect').addEventListener('change', e => { variant = Number(e.target.value); render(); });
+
+if ($('variantSelect')) {
+  $('variantSelect').addEventListener('change', e => {
+    teams[activeTeam].variant = Number(e.target.value);
+    render();
+  });
+}
+
 document.addEventListener('keydown', e => {
-  if(e.key === '1') mark('ok');
-  if(e.key === '2') mark('bad');
-  if(e.key === '3' || e.code === 'Space') { e.preventDefault(); mark('pass'); }
-  if(e.key.toLowerCase() === 'c') switchTeam();
+  if (e.key === '1') mark('ok');
+  if (e.key === '2') mark('bad');
+
+  if (e.key === '3' || e.code === 'Space') {
+    e.preventDefault();
+    mark('pass');
+  }
+
+  if (e.key.toLowerCase() === 'c') {
+    switchTeam();
+  }
 });
 
 buildRosco();
