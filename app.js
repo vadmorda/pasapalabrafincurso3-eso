@@ -59,11 +59,11 @@ const QUESTION_BANK = {
     { prompt: 'Con la N. Empresa dedicada al transporte marítimo de pasajeros o mercancías.', answer: 'Naviera' }
   ],
   Ñ: [
-    { prompt: 'Con la Ñ. Letra extra del rosco: di un concepto clave del tema que contenga ñ. País europeo con baja natalidad y envejecimiento.', answer: 'España' },
-    { prompt: 'Con la Ñ. Letra extra del rosco: di un concepto clave del tema que contenga ñ. Sinónimo de campaña agrícola anual.', answer: 'Añada' }
+    { prompt: 'Con la Ñ. Letra extra del rosco: di un concepto clave del tema que contenga ñ. País europeo con baja natalidad y alto envejecimiento.', answer: 'España' },
+    { prompt: 'Con la Ñ. Servicio fundamental que forma parte del sector terciario.', answer: 'Enseñanza' }
   ],
   O: [
-    { prompt: 'Con la O. Siglas de los Objetivos de Desarrollo Sostenible.', answer: 'ODS' },
+    { prompt: 'Con la O. Entidad sin ánimo de lucro que trabaja en ámbitos como el desarrollo, la ayuda humanitaria o el medio ambiente.', answer: 'ONG' },
     { prompt: 'Con la O. Organización internacional que aprobó la Agenda 2030.', answer: 'ONU' }
   ],
   P: [
@@ -71,7 +71,7 @@ const QUESTION_BANK = {
     { prompt: 'Con la P. Recurso energético fósil muy usado en transporte e industria.', answer: 'Petróleo' }
   ],
   Q: [
-    { prompt: 'Con la Q. Unidad de masa equivalente a 100 kilos, usada en agricultura.', answer: 'Quintal' },
+    { prompt: 'Con la Q. Principio que busca una distribución justa de oportunidades y recursos.', answer: 'Equidad' },
     { prompt: 'Con la Q. Proceso industrial que transforma sustancias mediante reacciones.', answer: 'Química' }
   ],
   R: [
@@ -79,8 +79,8 @@ const QUESTION_BANK = {
     { prompt: 'Con la R. Sistema formado por carreteras, vías férreas, puertos y aeropuertos.', answer: 'Red de transportes' }
   ],
   S: [
-    { prompt: 'Con la S. Sector económico que incluye comercio, transporte, turismo, sanidad o educación.', answer: 'Servicios' },
-    { prompt: 'Con la S. Desarrollo que protege el medio ambiente y garantiza el bienestar futuro.', answer: 'Sostenible' }
+    { prompt: 'Con la S. Tipo de desarrollo que protege el medio ambiente y garantiza el bienestar futuro.', answer: 'Sostenible' },
+    { prompt: 'Con la S. Sector económico que incluye comercio, transporte, turismo, sanidad o educación.', answer: 'Servicios' }
   ],
   T: [
     { prompt: 'Con la T. Desplazamiento temporal de personas por ocio, cultura o descanso.', answer: 'Turismo' },
@@ -91,24 +91,24 @@ const QUESTION_BANK = {
     { prompt: 'Con la U. Espacio propio de la ciudad, frente al espacio rural.', answer: 'Urbano' }
   ],
   V: [
-    { prompt: 'Con la V. Cambio en el número de habitantes de un territorio.', answer: 'Variación demográfica' },
-    { prompt: 'Con la V. Actividad turística que busca respetar la naturaleza y la cultura local.', answer: 'Viaje sostenible' }
+    { prompt: 'Con la V. Situación de una persona o grupo que tiene mayores dificultades para afrontar problemas económicos, sociales o ambientales.', answer: 'vulnerabilidad' },
+    { prompt: 'Con la V. Instalación donde se depositan residuos para su eliminación o tratamiento.', answer: 'Vertedero' }
   ],
   W: [
-    { prompt: 'Con la W. Red mundial de información que ha impulsado la globalización.', answer: 'Web' },
-    { prompt: 'Con la W. Siglas en inglés de la Organización Mundial del Comercio.', answer: 'WTO' }
+    { prompt: 'Con la W. Ciudad donde tienen su sede instituciones internacionales como el Banco Mundial o el FMI.', answer: 'Washington' },
+    { prompt: 'Con la W. Centro financiero de Nueva York considerado uno de los símbolos de la economía mundial.', answer: 'Wall Street' }
   ],
   X: [
-    { prompt: 'Con la X. Forma breve de referirse al desplazamiento del campo a la ciudad cuando se habla de éxodo.', answer: 'Xodo rural' },
-    { prompt: 'Con la X. Letra difícil: palabra adaptada para completar el rosco; venta de productos a otros países.', answer: 'Xportación' }
+    { prompt: 'Con la X. Migración de población desde las zonas rurales hacia las ciudades.', answer: 'éxodo rural' },
+    { prompt: 'Con la X. Producción que supera las necesidades de consumo.', answer: 'Excedentes' }
   ],
   Y: [
     { prompt: 'Con la Y. Lugar donde se localiza un recurso mineral o energético.', answer: 'Yacimiento' },
-    { prompt: 'Con la Y. Espacio de almacenamiento de contenedores o mercancías en logística.', answer: 'Yarda logística' }
+    { prompt: 'Con la Y. Siglas de empresa de pequeño o mediano tamaño que constituye la mayor parte del tejido empresarial español.', answer: 'PYME' }
   ],
   Z: [
-    { prompt: 'Con la Z. Área de una ciudad dedicada a fábricas, almacenes o actividades productivas.', answer: 'Zona industrial' },
-    { prompt: 'Con la Z. Parte de una ciudad con usos y funciones concretas.', answer: 'Zona urbana' }
+    { prompt: 'Con la Z. Situación geográfica de una actividad económica, ciudad o territorio.', answer: 'Localización' },
+    { prompt: 'Con la Z. Proceso de degradación que transforma un territorio en un espacio cada vez más árido.', answer: 'Desertización' }
   ]
 };
 
