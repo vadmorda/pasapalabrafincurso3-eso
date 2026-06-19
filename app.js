@@ -3,11 +3,11 @@
 // Consejo: mantén answer en minúsculas/mayúsculas como quieras mostrarla; la app solo la enseña, no corrige texto escrito.
 const QUESTION_BANK = {
   A: [
-    { prompt: 'Con la A. Conjunto de metas internacionales aprobadas por la ONU para lograr un mundo más sostenible antes de 2030.', answer: 'Agenda 2030' },
-    { prompt: 'Con la A. Actividad del sector primario que cultiva la tierra para obtener alimentos y materias primas.', answer: 'Agricultura' }
+    { prompt: 'Con la A. Cría controlada de peces, moluscos o crustáceos para consumo humano.', answer: 'Acuicultura' },
+    { prompt: 'Con la A. Impuesto que grava los productos importados de otros países.', answer: 'Arancel' }
   ],
   B: [
-    { prompt: 'Con la B. Situación de bajo número de nacimientos en una población.', answer: 'Baja natalidad' },
+    { prompt: 'Con la B. Diferencia entre el valor de las exportaciones y las importaciones de un país.', answer: 'Balanza comercial' },
     { prompt: 'Con la B. Combustible renovable obtenido de materia orgánica.', answer: 'Biomasa' }
   ],
   C: [
@@ -16,7 +16,7 @@ const QUESTION_BANK = {
   ],
   D: [
     { prompt: 'Con la D. Diferencia injusta en riqueza, derechos u oportunidades entre personas o territorios.', answer: 'Desigualdad' },
-    { prompt: 'Con la D. Proceso por el que una zona pierde población.', answer: 'Despoblación' }
+    { prompt: 'Con la D. Ciencia que estudia la población, su estructura y su evolución.', answer: 'Demografía' }
   ],
   E: [
     { prompt: 'Con la E. Aumento del porcentaje de personas mayores en una población.', answer: 'Envejecimiento' },
@@ -32,31 +32,31 @@ const QUESTION_BANK = {
   ],
   H: [
     { prompt: 'Con la H. ODS número 2, que busca acabar con la falta de alimentos.', answer: 'Hambre cero' },
-    { prompt: 'Con la H. Energía renovable obtenida a partir del agua en movimiento.', answer: 'Hidroeléctrica' }
+    { prompt: 'Con la H. Espacio habitado,', answer: 'Hábitat' }
   ],
   I: [
     { prompt: 'Con la I. Actividad económica que transforma materias primas en productos elaborados.', answer: 'Industria' },
     { prompt: 'Con la I. Llegada de población extranjera a un país para vivir en él.', answer: 'Inmigración' }
   ],
   J: [
-    { prompt: 'Con la J. Trabajo con condiciones dignas, salario justo y derechos laborales.', answer: 'Justo' },
-    { prompt: 'Con la J. Grupo de población formado por personas jóvenes.', answer: 'Juventud' }
+    { prompt: 'Con la J. Tiempo diario dedicado al trabajo remunerado.', answer: 'Jornada laboral },
+    { prompt: 'Con la J. Organización de las ciudades según su tamaño, funciones e influencia sobre el territorio.', answer: 'Jerarquía urbana' }
   ],
   K: [
-    { prompt: 'Con la K. Unidad usada para medir distancias en transportes y redes de comunicación.', answer: 'Kilómetro' },
-    { prompt: 'Con la K. Prefijo que equivale a mil unidades, usado en palabras como kilovatio o kilómetro.', answer: 'Kilo' }
+    { prompt: 'Con la K. Ciudad japonesa que dio nombre a un importante protocolo internacional para reducir las emisiones contaminantes', answer: 'Kyoto' },
+    { prompt: 'Con la K. País al oeste de Mongolia', answer: 'Kazajstán' }
   ],
   L: [
     { prompt: 'Con la L. Aumento de la esperanza de vida de una población.', answer: 'Longevidad' },
-    { prompt: 'Con la L. Organización de almacenes, transporte y distribución de mercancías.', answer: 'Logística' }
+    { prompt: 'Con la L. Franja de contacto entre la tierra y el mar.', answer: 'Litoral' }
   ],
   M: [
-    { prompt: 'Con la M. Desplazamiento de población de un lugar a otro.', answer: 'Migración' },
-    { prompt: 'Con la M. Transporte más importante para el comercio mundial de mercancías.', answer: 'Marítimo' }
+    { prompt: 'Con la M. Gran ciudad que ejerce influencia económica, política y cultural sobre un amplio territorio.', answer: 'Metrópolis' },
+    { prompt: 'Con la M. Número de defunciones que se producen en una población durante un periodo determinado.', answer: 'Mortalidad' }
   ],
   N: [
-    { prompt: 'Con la N. Número de nacimientos en una población durante un periodo determinado.', answer: 'Natalidad' },
-    { prompt: 'Con la N. Fuente de energía no renovable usada en centrales eléctricas.', answer: 'Nuclear' }
+    { prompt: 'Con la N. Punto donde confluyen varias rutas o medios de transporte en la red de transportes.', answer: 'Nodo' },
+    { prompt: 'Con la N. Empresa dedicada al transporte marítimo de pasajeros o mercancías.', answer: 'Naviera' }
   ],
   Ñ: [
     { prompt: 'Con la Ñ. Letra extra del rosco: di un concepto clave del tema que contenga ñ. País europeo con baja natalidad y envejecimiento.', answer: 'España' },
