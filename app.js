@@ -39,7 +39,7 @@ const QUESTION_BANK = {
     { prompt: 'Con la I. Llegada de población extranjera a un país para vivir en él.', answer: 'Inmigración' }
   ],
   J: [
-    { prompt: 'Con la J. Tiempo diario dedicado al trabajo remunerado.', answer: 'Jornada laboral },
+    { prompt: 'Con la J. Tiempo diario dedicado al trabajo remunerado.', answer: 'Jornada laboral' },
     { prompt: 'Con la J. Organización de las ciudades según su tamaño, funciones e influencia sobre el territorio.', answer: 'Jerarquía urbana' }
   ],
   K: [
